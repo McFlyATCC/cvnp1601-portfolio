@@ -1,0 +1,56 @@
+Linux Command Cheat Sheet
+
+pwd
+  Flags: -P (show physical path, no symlinks), -L (logical path, default)
+  Example: pwd
+  Risk: Minimal risk. Be cautious when copying paths for commands that modify or delete files.
+
+ls
+  Flags: -l (long format), -a (show hidden files), -h (human-readable sizes), -R (recursive)
+  Example: ls -lah /var/log
+  Risk: ls -R can generate a very large amount of output and may expose sensitive file names if shared.
+
+cd
+  Flags: No commonly used flags. Special shortcuts: ~ (home directory), .. (parent directory), - (previous directory)
+  Example: cd /etc
+  Risk: Always verify your location with pwd before running administrative commands such as rm or chmod.
+
+find
+  Flags: -name (search by name), -type (file or directory), -mtime (modified time), -size (file size)
+  Example: find /var/log -type f -name "*.log"
+  Risk: Searching from / can be resource-intensive. Be especially careful when combining find with -delete.
+
+grep
+  Flags: -i (case-insensitive), -r (recursive), -v (invert match)
+  Example: grep -i "error" /var/log/syslog | head -20
+  Risk: Piping grep into > overwrites the file; use >> to preserve previous output.
+
+head
+  Flags: -n (number of lines), -c (number of bytes)
+  Example: head -n 20 /var/log/syslog
+  Risk: Minimal risk. Useful for previewing large files without opening the entire file.
+
+wc
+  Flags: -l (line count), -w (word count), -c (byte count)
+  Example: wc -l access.log
+  Risk: Minimal risk. Results may be misleading if counting binary files instead of text files.
+
+|
+  Flags: N/A
+  Example: grep "error" /var/log/syslog | wc -l
+  Risk: Data flows directly between commands. Verify each command in the pipeline to avoid processing unintended data.
+
+>
+  Flags: N/A
+  Example: ls -la > directory_listing.txt
+  Risk: Overwrites the destination file if it already exists. Existing contents will be lost.
+
+>>
+  Flags: N/A
+  Example: echo "Scan completed" >> results.log
+  Risk: Continuously appending can create very large log files over time.
+
+2>/dev/null
+  Flags: N/A
+  Example: find / -name "*.conf" 2>/dev/null
+  Risk: Hides error messages that may indicate permission problems, missing files, or command failures. Use carefully during troubleshooting.
