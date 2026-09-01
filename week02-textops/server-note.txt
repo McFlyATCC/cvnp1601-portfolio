@@ -1,0 +1,5 @@
+Server Name:cvnp1601-lab
+IP Address:192.168.127.72
+Status: Active 
+Date: 8-31-26
+Name: Matt M
