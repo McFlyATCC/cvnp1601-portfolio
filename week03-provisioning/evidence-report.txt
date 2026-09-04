@@ -1,5 +1,5 @@
 === CVNP1601-W03 Evidence Report ===
-Generated : 2026-09-04 14:41:16
+Generated : 2026-09-04 15:10:31
 Host      : cvnp1601-lab
 Week      : 03
 Folder    : /home/mcfly/cvnp1601-portfolio/week03-provisioning
@@ -15,13 +15,13 @@ Folder    : /home/mcfly/cvnp1601-portfolio/week03-provisioning
 sudo: error initializing audit plugin sudoers_audit
 
 [REQUIRED FILES]
-  README.md : NOT FOUND
+  README.md : FOUND (8631 bytes)
   provisioning-summary.md : NOT FOUND
   tech-lead-note.md : NOT FOUND
   troubleshooting-narrative.md : NOT FOUND
-  week3-diagnosis.md : NOT FOUND
+  week3-diagnosis.md : FOUND (14 bytes)
 
 [SECRET SCAN]
-  No obvious secret/token patterns detected. Still manually review every file before committing.
+  WARNING: possible secret/token pattern found in README.md — review before committing (pattern: passwd[[:space:]]*[:=][[:space:]]*[^[:space:]]+)
 
 Commit this file (evidence-report.txt) to your GitHub repo under week03-provisioning/.
